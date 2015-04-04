@@ -106,6 +106,16 @@ public class SSLContext extends RubyObject {
         SSL_VERSION_OSSL2JSSE.put("TLSv1_client", "TLSv1");
         ENABLED_PROTOCOLS.put("TLSv1", new String[] { "TLSv1" });
 
+        SSL_VERSION_OSSL2JSSE.put("TLSv1_1", "TLSv1.1");
+        SSL_VERSION_OSSL2JSSE.put("TLSv1_1_server", "TLSv1.1");
+        SSL_VERSION_OSSL2JSSE.put("TLSv1_1_client", "TLSv1.1");
+        ENABLED_PROTOCOLS.put("TLSv1.1", new String[] { "TLSv1.1" });
+
+        SSL_VERSION_OSSL2JSSE.put("TLSv1_2", "TLSv1.2");
+        SSL_VERSION_OSSL2JSSE.put("TLSv1_2_server", "TLSv1.2");
+        SSL_VERSION_OSSL2JSSE.put("TLSv1_2_client", "TLSv1.2");
+        ENABLED_PROTOCOLS.put("TLSv1.2", new String[] { "TLSv1.2" });
+
         SSL_VERSION_OSSL2JSSE.put("SSLv2", "SSLv2");
         SSL_VERSION_OSSL2JSSE.put("SSLv2_server", "SSLv2");
         SSL_VERSION_OSSL2JSSE.put("SSLv2_client", "SSLv2");
@@ -119,15 +129,14 @@ public class SSLContext extends RubyObject {
         SSL_VERSION_OSSL2JSSE.put("SSLv23", "SSL");
         SSL_VERSION_OSSL2JSSE.put("SSLv23_server", "SSL");
         SSL_VERSION_OSSL2JSSE.put("SSLv23_client", "SSL");
-        ENABLED_PROTOCOLS.put("SSL", new String[] { "SSLv2", "SSLv3", "TLSv1" });
+        ENABLED_PROTOCOLS.put("SSL", new String[] { "SSLv2", "SSLv3", "TLSv1", "TLSv1.1", "TLSv1.2" });
 
         // Followings(TLS, TLSv1.1) are JSSE only methods at present. Let's allow user to use it.
 
         SSL_VERSION_OSSL2JSSE.put("TLS", "TLS");
-        ENABLED_PROTOCOLS.put("TLS", new String[] { "TLSv1", "TLSv1.1" });
+        ENABLED_PROTOCOLS.put("TLS", new String[] { "TLSv1", "TLSv1.1", "TLSv1.2" });
 
         SSL_VERSION_OSSL2JSSE.put("TLSv1.1", "TLSv1.1");
-        ENABLED_PROTOCOLS.put("TLSv1.1", new String[] { "TLSv1.1" });
     }
 
     private static ObjectAllocator SSLCONTEXT_ALLOCATOR = new ObjectAllocator() {
